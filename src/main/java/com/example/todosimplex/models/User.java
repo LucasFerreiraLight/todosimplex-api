@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -44,7 +46,10 @@ public class User {
     @Size(groups = {CreateUser.class, UpdateUser.class} , min = 8, max=60)
     private String password;
 
-    //private List<Task> tasks = newArraylist<Task>();
+
+    // Task
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks = new ArrayList<Task>();
 
 
     @Override
